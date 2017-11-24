@@ -6,9 +6,9 @@ django-enforce-host
 
 Sometimes, it's unavoidable that multiple URLs point at the same app - for example, on Heroku, all apps get a `.herokuapp.com` address, as well as any custom domains that are pointed at them.
 
-This is a simple Django middleware (new-style for Django 1.10 or later) that redirects all traffic from hosts other than the one(s) you specify to your canonical URL.
+This is a simple Django middleware that redirects all traffic from hosts other than the one(s) you specify to your canonical URL.
 
-Tested against Django 1.10, 1.11 on Python 2.7, 3.4 and 3.6
+Tested against Django 1.8, 1.9, 1.10, 1.11 on Python 2.7, 3.4 and 3.6
 
 ### Installation
 
