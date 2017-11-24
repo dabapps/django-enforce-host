@@ -8,10 +8,10 @@ import os
 import sys
 
 
-name = 'django-enforce-hostname'
-package = 'enforce_hostname'
+name = 'django-enforce-host'
+package = 'enforce_host'
 description = 'Middleware to redirect requests to a canonical hostname'
-url = 'https://github.com/dabapps/django-enforce-hostname'
+url = 'https://github.com/dabapps/django-enforce-host'
 author = 'DabApps'
 author_email = 'hello@dabapps.com'
 license = 'BSD'

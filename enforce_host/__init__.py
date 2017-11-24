@@ -11,11 +11,11 @@ except NameError:
   string_type = str
 
 
-class EnforceHostnameMiddleware(object):
+class EnforceHostMiddleware(object):
 
     def __init__(self, get_response):
         self.get_response = get_response
-        setting_value = getattr(settings, 'ENFORCE_HOSTNAME', None)
+        setting_value = getattr(settings, 'ENFORCE_HOST', None)
 
         if setting_value is None:
             raise MiddlewareNotUsed()

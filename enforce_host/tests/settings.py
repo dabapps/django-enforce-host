@@ -6,14 +6,14 @@ DATABASES = {
     }
 }
 
-ROOT_URLCONF = 'enforce_hostname.tests.urls'
+ROOT_URLCONF = 'enforce_host.tests.urls'
 
 SECRET_KEY = 'abcde12345'
 
 ALLOWED_HOSTS = ['original.com', 'enforced.com', 'enforced2.com']
 
 MIDDLEWARE = [
-    'enforce_hostname.EnforceHostnameMiddleware'
+    'enforce_host.EnforceHostMiddleware'
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
