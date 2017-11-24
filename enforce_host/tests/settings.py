@@ -1,3 +1,5 @@
+from django.conf import global_settings
+
 
 DATABASES = {
     'default': {
@@ -12,8 +14,13 @@ SECRET_KEY = 'abcde12345'
 
 ALLOWED_HOSTS = ['original.com', 'enforced.com', 'enforced2.com']
 
-MIDDLEWARE = [
-    'enforce_host.EnforceHostMiddleware'
-]
+if hasattr(global_settings, 'MIDDLEWARE'):
+    MIDDLEWARE = [
+        'enforce_host.EnforceHostMiddleware'
+    ]
+else:
+    MIDDLEWARE_CLASSES = [
+        'enforce_host.EnforceHostMiddleware'
+    ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
