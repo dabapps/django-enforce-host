@@ -1,0 +1,12 @@
+language: python
+sudo: false
+python:
+- '2.7'
+- '3.4'
+- '3.6'
+env:
+- DJANGO_VERSION=1.10
+- DJANGO_VERSION=1.11
+install:
+- pip install -U django==$DJANGO_VERSION
+script: python manage.py test
