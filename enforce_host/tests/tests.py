@@ -9,6 +9,11 @@ class EnforceHostTestCase(TestCase):
         response = self.client.get('/', HTTP_HOST='enforced.com')
         self.assertEqual(response.status_code, 200)
 
+    @override_settings(ENFORCE_HOST='enforced.com')
+    def test_host_with_port_allowed(self):
+        response = self.client.get('/', HTTP_HOST='enforced.com:8080')
+        self.assertEqual(response.status_code, 200)
+
     @override_settings(ENFORCE_HOST=['enforced.com', 'enforced2.com'])
     def test_multiple_hosts_allowed(self):
         response = self.client.get('/', HTTP_HOST='enforced2.com')

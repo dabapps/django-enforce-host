@@ -3,6 +3,7 @@ __version__ = '1.0.1'
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
 from django.http import HttpResponsePermanentRedirect
+from django.http.request import split_domain_port
 try:
     from django.utils.deprecation import MiddlewareMixin
 except ImportError:
@@ -10,9 +11,9 @@ except ImportError:
 
 
 try:
-  string_type = basestring
+    string_type = basestring
 except NameError:
-  string_type = str
+    string_type = str
 
 
 class EnforceHostMiddleware(MiddlewareMixin):
@@ -31,6 +32,7 @@ class EnforceHostMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         host = request.get_host()
+        host, port = split_domain_port(host)
 
         if host in self.allowed_hosts:
             return
