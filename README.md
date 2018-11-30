@@ -28,3 +28,8 @@ Set the following setting to be either a single allowed host, or a list of allow
     ENFORCE_HOST = 'yourapp.com'
 
 That's it!
+
+## Code of conduct
+
+For guidelines regarding the code of conduct when contributing to this repository please review [https://www.dabapps.com/open-source/code-of-conduct/](https://www.dabapps.com/open-source/code-of-conduct/)
+
