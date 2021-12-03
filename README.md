@@ -8,7 +8,7 @@ Sometimes, it's unavoidable that multiple URLs point at the same app - for examp
 
 This is a simple Django middleware that redirects all traffic from hosts other than the one(s) you specify to your canonical URL.
 
-Tested against Django 1.8, 1.9, 1.10, 1.11 on Python 2.7, 3.4 and 3.6
+Tested against Django 2.2, 3.0, 3.1, 3.2 on Python 3.6, 3.7, 3.8, 3.9 and 3.10
 
 ### Installation
 
