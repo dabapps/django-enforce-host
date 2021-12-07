@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+black --check enforce_host
+flake8 enforce_host
+isort --check --diff enforce_host
+python manage.py test --noinput $@

@@ -1,8 +1,9 @@
-__version__ = '1.0.1'
+__version__ = "1.0.1"
 
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
 from django.http import HttpResponsePermanentRedirect
+
 try:
     from django.utils.deprecation import MiddlewareMixin
 except ImportError:
@@ -10,16 +11,15 @@ except ImportError:
 
 
 try:
-  string_type = basestring
+    string_type = basestring
 except NameError:
-  string_type = str
+    string_type = str
 
 
 class EnforceHostMiddleware(MiddlewareMixin):
-
     def __init__(self, get_response=None):
         self.get_response = get_response
-        setting_value = getattr(settings, 'ENFORCE_HOST', None)
+        setting_value = getattr(settings, "ENFORCE_HOST", None)
 
         if setting_value is None:
             raise MiddlewareNotUsed()
@@ -36,7 +36,9 @@ class EnforceHostMiddleware(MiddlewareMixin):
             return
 
         new_url = "%s://%s%s" % (
-            'https' if request.is_secure() else 'http',
-            self.allowed_hosts[0], request.get_full_path())
+            "https" if request.is_secure() else "http",
+            self.allowed_hosts[0],
+            request.get_full_path(),
+        )
 
         return HttpResponsePermanentRedirect(new_url)
