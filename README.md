@@ -16,9 +16,12 @@ Install from PIP
 
     pip install django-enforce-host
 
-In your `MIDDLEWARE` setting, add the following at the top:
+In your `MIDDLEWARE` setting, add the middleware just after the `SecurityMiddleware`:
 
     MIDDLEWARE = [
+        # Django's SecurityMiddleware will handle HTTP -> HTTPS redirects
+        # before the EnforceHostMiddleware redirects to the canonical domain
+        'django.middleware.security.SecurityMiddleware',
         'enforce_host.EnforceHostMiddleware',
         ... other middleware
     ]
