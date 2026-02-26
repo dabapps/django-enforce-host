@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-enforce-host"
+version = "1.1.0"
+description = "Middleware to redirect requests to a canonical hostname"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "DabApps", email = "hello@dabapps.com" }]
+
+[project.urls]
+Homepage = "https://github.com/dabapps/django-enforce-host"
+Repository = "https://github.com/dabapps/django-enforce-host"
+
+[tool.setuptools.packages.find]
+include = ["enforce_host*"]
